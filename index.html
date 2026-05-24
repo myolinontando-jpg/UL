@@ -270,7 +270,7 @@
       <div class="radio-row">
         <label><input type="radio" name="User_Type" value="Student" checked> Student</label>
         <label><input type="radio" name="User_Type" value="Personnel"> Personnel</label>
-        <label><input type="radio" name="User_Type" value="Other"> Other</label
+        <label><input type="radio" name="User_Type" value="Other"> Other</label>
         <label><input type="radio" name="User_Type" value="Alumni"> Alumni</label>
       </div>
 
@@ -293,6 +293,14 @@
              autocomplete="off"
              required>
       <p class="pin-hint">(5 numeric digits. Do not start with a 0.)</p>
+
+      <!-- Password -->
+      <div class="field-label">Password:</div>
+      <input class="tut-input" type="password" name="Password"
+             id="passwordField"
+             placeholder=""
+             autocomplete="off"
+             required>
 
       <hr>
 
@@ -320,10 +328,12 @@
   document.getElementById('loginForm').addEventListener('submit', function(e) {
     var sNum = document.getElementById('studentNumber').value.trim();
     var pin  = document.getElementById('pinField').value.trim();
+    var password = document.getElementById('passwordField').value.trim();
     var pinPattern = /^[1-9][0-9]{4}$/;
 
-    if (!sNum || !pin) {
+    if (!sNum || !pin || !password) {
       e.preventDefault();
+      document.getElementById('msgError').textContent = '\u26a0 Please fill in all required fields.';
       document.getElementById('msgError').style.display = 'block';
       document.getElementById('msgSuccess').style.display = 'none';
       return;
